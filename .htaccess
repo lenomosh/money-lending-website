@@ -1,0 +1,27 @@
+
+# BlueHost.com 
+# .htaccess main domain to subdirectory redirect 
+# Do not change this line. 
+RewriteEngine on 
+# Change example.com to be your main domain. 
+RewriteCond %{HTTP_HOST} ^(www.)?goafrica-kenyagrantmakers.com$ 
+# Change 'subdirectory' to be the directory you will use for your main domain. 
+RewriteCond %{REQUEST_URI} !^/public/ 
+# Don't change the following two lines. 
+RewriteCond %{REQUEST_FILENAME} !-f 
+RewriteCond %{REQUEST_FILENAME} !-d
+# Change 'subdirectory' to be the directory you will use for your main domain. 
+RewriteRule ^(.*)$ /public/$1 
+# Change example.com to be your main domain again. 
+# Change 'subdirectory' to be the directory you will use for your main domain 
+# followed by / then the main file for your site, index.php, index.html, etc. 
+RewriteCond %{HTTP_HOST} ^(www.)?goafrica-kenyagrantmakers.com$ 
+RewriteRule ^(/)?$ public/ [L]
+# RewriteEngine On
+# RewriteRule ^(/)/(.*)$ $1/public/$2
+# DO NOT REMOVE THIS LINE AND THE LINES BELOW SSL_REDIRECT:goafrica-kenyagrantmakers.com
+# RewriteEngine on
+# RewriteCond %{HTTPS} off
+# RewriteCond %{HTTP_HOST} ^goafrica-kenyagrantmakers.com$
+# RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# DO NOT REMOVE THIS LINE AND THE LINES ABOVE SSL_REDIRECT:goafrica-kenyagrantmakers.com
